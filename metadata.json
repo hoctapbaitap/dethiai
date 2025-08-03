@@ -1,0 +1,6 @@
+{
+  "name": "Trình tạo đề thi Toán AI",
+  "description": "Một ứng dụng AI giúp giáo viên tạo đề thi toán cấp 3 từ tài liệu. Học sinh có thể luyện tập trực tuyến và giáo viên có thể tải về để sử dụng ngoại tuyến.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
