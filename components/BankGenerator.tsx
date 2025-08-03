@@ -68,12 +68,38 @@ export const BankGenerator: React.FC<BankGeneratorProps> = ({ onGenerate, onBack
   };
   
   useEffect(() => {
-    if (window.MathJax) {
-      setTimeout(() => {
-         window.MathJax.typesetPromise();
-      }, 100);
-    }
+    const renderMath = async () => {
+      if (window.MathJax) {
+        try {
+          await window.MathJax.startup.promise;
+          await window.MathJax.typesetPromise();
+        } catch (error) {
+          console.warn('MathJax rendering error:', error);
+        }
+      }
+    };
+
+    const timer = setTimeout(renderMath, 100);
+    return () => clearTimeout(timer);
   }, [sampleQuestions]);
+
+  // Re-render MathJax when selection changes
+  useEffect(() => {
+    const renderMath = async () => {
+      if (window.MathJax) {
+        try {
+          await window.MathJax.typesetPromise();
+        } catch (error) {
+          console.warn('MathJax rendering error:', error);
+        }
+      }
+    };
+
+    if (selectedQuestions.size > 0) {
+      const timer = setTimeout(renderMath, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedQuestions]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

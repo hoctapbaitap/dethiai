@@ -40,10 +40,26 @@
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          processEscapes: true
+          processEscapes: true,
+          processEnvironments: true,
+          processRefs: true
         },
         svg: {
-          fontCache: 'global'
+          fontCache: 'global',
+          displayAlign: 'center',
+          displayIndent: '0em'
+        },
+        startup: {
+          ready: () => {
+            console.log('MathJax is loaded, but not yet initialized');
+            window.MathJax.startup.defaultReady();
+            console.log('MathJax is initialized, and the initial typeset is queued');
+          }
+        },
+        options: {
+          renderActions: {
+            addMenu: [0, '', '']
+          }
         }
       };
     </script>

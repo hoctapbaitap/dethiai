@@ -1,0 +1,102 @@
+/* Global styles for better math rendering */
+body {
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
+}
+
+/* Enhanced MathJax styling */
+.MathJax {
+  outline: 0;
+  display: inline-block !important;
+  line-height: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  word-break: normal;
+  text-align: left;
+  text-indent: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mjx-container {
+  display: inline-block !important;
+  margin: 0 0.1em !important;
+  line-height: 0 !important;
+  text-indent: 0 !important;
+  text-align: left !important;
+  text-transform: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 100% !important;
+  font-size-adjust: none !important;
+  letter-spacing: normal !important;
+  word-wrap: normal !important;
+  word-spacing: normal !important;
+  white-space: nowrap !important;
+  float: none !important;
+  direction: ltr !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 0.1em !important;
+}
+
+.mjx-container[display="true"] {
+  display: block !important;
+  text-align: center !important;
+  margin: 1em 0 !important;
+}
+
+.mjx-container[display="false"] {
+  display: inline !important;
+  margin: 0 0.1em !important;
+}
+
+.mjx-container svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Prevent math from breaking across lines */
+.math-content {
+  white-space: nowrap;
+  overflow-x: auto;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* Better spacing for questions and options */
+.question-text, .option-text {
+  line-height: 1.8 !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles */
+@media print {
+  .MathJax, .mjx-container {
+    page-break-inside: avoid !important;
+  }
+}
